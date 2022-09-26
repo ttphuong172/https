@@ -1,0 +1,7 @@
+<p>student-add works!</p>
+<form [formGroup]="studentForm">
+  <input type="text" formControlName="name">
+  <button (click)="save()">Save</button>
+</form>
+
+{{studentForm.value | json}}
