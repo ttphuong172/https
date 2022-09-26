@@ -7,7 +7,7 @@ import {StudentService} from "../../../service/student.service";
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponent implements OnInit {
-
+  studentList:any;
   constructor(
     private studentService:StudentService
   ) { }
@@ -15,7 +15,7 @@ export class StudentListComponent implements OnInit {
   ngOnInit(): void {
     this.studentService.findAll().subscribe(
       (data)=>{
-        console.log(data);
+        this.studentList=data;
       }
     )
   }

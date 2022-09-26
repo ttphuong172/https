@@ -2,6 +2,9 @@
 <form [formGroup]="studentForm">
   <input type="text" formControlName="name">
   <button (click)="save()">Save</button>
+  <webcam [height]="300"  [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
+  <button class="btn btn-success" (click)="triggerSnapshot();">Take A Snapshot</button>
+  <img src="{{ captureImage }}" height="300px">
 </form>
 
 {{studentForm.value | json}}

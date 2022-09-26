@@ -1,1 +1,9 @@
-<p>student-list works!</p>
+<a routerLink="add">Add new Student</a>
+<table>
+  <tbody>
+  <tr *ngFor="let student of studentList">
+    <td>{{student.name}}</td>
+    <td><img style="height: 100px" src="{{student.photo}}" alt=""></td>
+  </tr>
+  </tbody>
+</table>

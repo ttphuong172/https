@@ -6,6 +6,8 @@ import { StudentListComponent } from './student/student-list/student-list.compon
 import { HttpClientModule} from "@angular/common/http";
 import { StudentAddComponent } from './student/student-add/student-add.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {RouterModule} from "@angular/router";
+import {WebcamModule} from "ngx-webcam";
 
 @NgModule({
   declarations: [
@@ -16,7 +18,12 @@ import {ReactiveFormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      {path:"",component:StudentListComponent},
+      {path:"add",component:StudentAddComponent}
+    ]),
+    WebcamModule
   ],
   providers: [],
   bootstrap: [AppComponent]
