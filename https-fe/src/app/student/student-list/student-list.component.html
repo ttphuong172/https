@@ -2,8 +2,12 @@
 <table>
   <tbody>
   <tr *ngFor="let student of studentList">
+    <td>{{student.id}}</td>
     <td>{{student.name}}</td>
     <td><img style="height: 100px" src="{{student.photo}}" alt=""></td>
+    <td>
+      <button (click)="openDialogDelete(student.id)">Delete</button>
+    </td>
   </tr>
   </tbody>
 </table>

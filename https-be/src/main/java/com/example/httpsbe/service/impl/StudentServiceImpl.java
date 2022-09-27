@@ -20,4 +20,14 @@ public class StudentServiceImpl implements StudentService {
     public void save(Student student) {
         studentRepository.save(student);
     }
+
+    @Override
+    public void delete(Student student) {
+        studentRepository.delete(student);
+    }
+
+    @Override
+    public Student findById(int id) {
+        return studentRepository.findById(id).orElse(null);
+    }
 }
