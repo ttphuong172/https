@@ -16,6 +16,6 @@ export class StudentService {
     return this.httpClient.post('http://localhost:8081/api/students',student)
   }
   delete(id:any){
-    return this.httpClient.delete('http://localhost:8081/api/students', id);
+    return this.httpClient.delete('http://localhost:8081/api/students/' + id);
   }
 }

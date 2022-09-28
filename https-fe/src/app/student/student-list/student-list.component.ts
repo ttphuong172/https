@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StudentService} from "../../../service/student.service";
 import {StudentDeleteComponent} from "../student-delete/student-delete.component";
 import {MatDialog} from "@angular/material/dialog";
@@ -9,25 +9,33 @@ import {MatDialog} from "@angular/material/dialog";
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponent implements OnInit {
-  studentList:any;
+  studentList: any;
+
   constructor(
-    private studentService:StudentService,
-    private matDialog:MatDialog
-  ) { }
+    private studentService: StudentService,
+    private matDialog: MatDialog
+  ) {
+  }
 
   ngOnInit(): void {
     this.studentService.findAll().subscribe(
-      (data)=>{
-        this.studentList=data;
+      (data) => {
+        this.studentList = data;
       }
     )
   }
 
 
-  openDialogDelete(id:any) {
-    let dialogRefDelete = this.matDialog.open(StudentDeleteComponent,{
-      width:'600px',
-      data:id
+  openDialogDelete(id: any) {
+    let dialogRefDelete = this.matDialog.open(StudentDeleteComponent, {
+      width: '600px',
+      data: id,
+      disableClose: true
     })
+    dialogRefDelete.afterClosed().subscribe(
+      () => {
+        this.ngOnInit();
+      }
+    )
   }
 }
